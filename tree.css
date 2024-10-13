@@ -1,0 +1,172 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  font-size: 1.1em;
+}
+
+label {
+  font-size: 1.1em;
+}
+
+#title {
+  background-color: rgb(61, 61, 61);
+  font-size: 1.1em;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-weight: normal;
+  font-size: 1.75em;
+}
+
+#blurb {
+  background-color: rgba(255, 255, 255, 0.386);
+  text-align: center;
+  margin: 1em auto;
+  width: 500px;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+#visual-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 0.5em;
+}
+
+#array-visual {
+  margin: 1em;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  width: 100%;
+  padding: 1em;
+  color: black;
+}
+
+button {
+  margin-top: 1em;
+  background-color: rgb(8, 74, 3);
+  font-size: 1.1em;
+  color: white;
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 3px;
+  font-weight: normal;
+  cursor: pointer;
+  /* Add cursor pointer for better UX */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+rect:hover,
+circle:hover,
+text.circle:hover,
+text.rect:hover {
+  cursor: pointer;
+}
+
+.subtext {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  /* Prevent overflow from affecting the layout */
+}
+
+.left-section {
+  flex: 3;
+  padding: 20px;
+  overflow-y: auto;
+  /* Make the left section scrollable */
+  max-height: 100%;
+  /* Ensure it doesn't grow beyond the viewport */
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  /* Set to 100vh to ensure it stays within the viewport */
+}
+
+#binary-tree {
+  overflow: auto;
+  /* Make the tree itself scrollable */
+  max-height: 80vh;
+  /* Limit the height of the tree visualizer */
+}
+
+#chatbot-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Allow it to grow to fill the available space */
+}
+
+#chat-window {
+  flex-grow: 1;
+  /* Allow the chat window to expand */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  max-height: 30%;
+  /* Limit height when there is content */
+}
+
+#user-input {
+  width: calc(100% - 60px);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    /* Stack sections vertically on smaller screens */
+  }
+
+  .right-section {
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
+}

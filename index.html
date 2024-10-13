@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tree.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div id="title"> Tree Visualizer</div>
+            <label>Array:</label><br />
+            <input type="text" id="array-input" name="array">
+            <div id="options">
+                <button onclick="treeAndArray()">Binary Tree Visualization</button>
+                <button onclick="heapify()">Max-Heap Visualization</button>
+                <button onclick="createBinarySearchTree()">Binary Search Tree Visualization</button>
+            </div>
+            <div id="blurb">
+                <div id="visual-title"></div>
+                <div id="instructions"></div>
+            </div>
+            <div id="binary-tree"></div>
+            <div id="array-visual"></div>
+        </div>
+
+        <div class="right-section">
+            <div id="chatbot-section">
+                <h3>What's Up?</h3>
+                <div id="chat-window">
+                    <p>Chatbot responses will appear here...</p>
+                </div>
+                <div>
+                    <input type="text" id="user-input" placeholder="Type a message">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="treeNode.js"></script>
+    <script src="treeApp.js"></script>
+    <script>
+        class HTTPCall {
+
+            async post(url, data) {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Authorization': `Bearer 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`
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const resData = await response.json();
+                const content = resData.choices[0].message.content;
+
+                document.getElementById('chat-window').innerText = content;
+
+
+                return resData;
+            }
+        }
+        function sendMessage() {
+            const http = new HTTPCall;
+
+            let input = document.getElementById('user-input').value;
+            let query = "Using the elements:" + document.getElementById('array-input').value
+                + "apply" + document.getElementById('visual-title').innerHTML
+                + "algorith and answer the follwing question accordingly" + input;
+            console.log(query);
+            const data = {
+                "model": "gpt-4o",
+                "messages": [{ "role": "user", "content": query }],
+                "temperature": 0.7
+            };
+
+            http.post('https://api.openai.com/v1/chat/completions', data)
+
+                .then(data => console.log(data))
+                .catch(err => console.log(err));
+        }
+    </script>
+
+    </script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="treeNode.js"></script>
+    <script src="treeApp.js"></script>
+    <script src="heap.js"></script>
+</body>
+
+</html>
