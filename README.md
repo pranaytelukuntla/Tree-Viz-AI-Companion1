@@ -57,4 +57,8 @@ This project deepened our understanding of:
 
 These enhancements will make Tree Viz AI Companion a more comprehensive tool for data structure education and debugging.
 
+---
+
+## 🌐 Additional Resources
+For more detailed information about the project, visit our [Devpost page](https://devpost.com/software/tree-viz-ai-companion?ref_content=user-portfolio&ref_feature=in_progress).
 
